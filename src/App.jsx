@@ -3,11 +3,18 @@ import "./styles.css"
 
 export default function App() {
   const [newItem, setNewItem] = useState("")
+  const [todos, setTodos] = useState([])
 
   function handleSubmit(e) {
      e.preventDefault()
 
+     setTodos([
+      ...todos,
+      { id: crypto.randomUUID(), title: newItem, completed: false }
+    ])   
   }
+
+  console.log(todos)
 
   return (
     <>
